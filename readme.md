@@ -48,6 +48,19 @@ The 2nd skill & the ending "Finished Call Both" are then presented after "In Bas
 
 It appears that the call to the 2nd skill is somehow getting stuck & only appearing after another action occurs.
 
+#### What I have tried
+I currently think that the reason this is occurring is because the return await stepContext.EndDialogAsync(result); in DoActionDialogBase.cs (line 40)
+Is impacting the calling dialog (CallBoth) & causing it to end as well.
+
+I originally had EndConversation instead of EndDialog so changed that but it didn't have any impact.
+
+I also thought that perhaps the 2 skills are interferring with each other & since 1 is finished the other cannot start.
+I tried to change the name of the property created in conversation state in SkillBotBase.cs (line 33) from "DialogState" to $"DialogState_{Dialog.Id}" to make it unique.
+I thought that maybe the conversation state was already in an "ended" state which was preventing the 2nd skill from starting.
+That did not have any impact though.
+
+I don't know what else to try at this point.
+
 ## Project Details
 This repo contains 2 components:
 - Bot.Skills (in IIS Bot.MultiSkill.Skills)
