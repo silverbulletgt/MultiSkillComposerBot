@@ -1,0 +1,39 @@
+[import](common.lg)
+
+# SendActivity_Welcome
+- ${WelcomeUser()}
+
+# SendActivity_4IL2SM()
+[Activity
+    Text = In Basic Intent
+]
+
+# SendActivity_lrD7er()
+[Activity
+    Text = In Test Skill 1
+]
+
+# SendActivity_PIZyUU()
+[Activity
+    Text = Finished Test Skill 1
+]
+
+# SendActivity_iHvgXi()
+[Activity
+    Text = In Test Skill 2
+]
+
+# SendActivity_MRTzSt()
+[Activity
+    Text = Finished Test Skill 2
+]
+
+# SendActivity_55B0FN()
+[Activity
+    Text = In Call Both
+]
+
+# SendActivity_krVJHT()
+[Activity
+    Text = Finished Call Both
+]

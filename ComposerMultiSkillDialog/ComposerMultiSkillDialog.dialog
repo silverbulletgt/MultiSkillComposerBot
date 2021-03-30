@@ -1,0 +1,215 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "$designer": {
+      "name": "ComposerMultiSkillDialog",
+      "description": "",
+      "id": "LL0BsM"
+    }
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnConversationUpdateActivity",
+      "$designer": {
+        "id": "376720"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "518944",
+            "name": "Loop: for each item"
+          },
+          "itemsProperty": "turn.Activity.membersAdded",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "641773",
+                "name": "Branch: if/else"
+              },
+              "condition": "string(dialog.foreach.value.id) != string(turn.Activity.Recipient.id)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "859266",
+                    "name": "Send a response"
+                  },
+                  "activity": "${SendActivity_Welcome()}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "YpgDB0",
+        "name": "TestSkill1"
+      },
+      "intent": "TestSkill1",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "lrD7er"
+          },
+          "activity": "${SendActivity_lrD7er()}"
+        },
+        {
+          "$kind": "Microsoft.BeginSkill",
+          "$designer": {
+            "id": "sqJncH"
+          },
+          "activityProcessed": true,
+          "botId": "=settings.MicrosoftAppId",
+          "skillHostEndpoint": "=settings.skillHostEndpoint",
+          "connectionName": "=settings.connectionName",
+          "allowInterruptions": true,
+          "skillEndpoint": "=settings.skill['testSkill1'].endpointUrl",
+          "skillAppId": "=settings.skill['testSkill1'].msAppId"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "PIZyUU"
+          },
+          "activity": "${SendActivity_PIZyUU()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "QXUabb",
+        "name": "TestSkill2"
+      },
+      "intent": "TestSkill2",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "iHvgXi"
+          },
+          "activity": "${SendActivity_iHvgXi()}"
+        },
+        {
+          "$kind": "Microsoft.BeginSkill",
+          "$designer": {
+            "id": "kmubHn"
+          },
+          "activityProcessed": true,
+          "botId": "=settings.MicrosoftAppId",
+          "skillHostEndpoint": "=settings.skillHostEndpoint",
+          "connectionName": "=settings.connectionName",
+          "allowInterruptions": true,
+          "skillEndpoint": "=settings.skill['testSkill2'].endpointUrl",
+          "skillAppId": "=settings.skill['testSkill2'].msAppId"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "MRTzSt"
+          },
+          "activity": "${SendActivity_MRTzSt()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "F3QCBo",
+        "name": "BasicIntent"
+      },
+      "intent": "BasicIntent",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "4IL2SM"
+          },
+          "activity": "${SendActivity_4IL2SM()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "LAggXK",
+        "name": "CallBoth"
+      },
+      "intent": "CallBoth",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "55B0FN"
+          },
+          "activity": "${SendActivity_55B0FN()}"
+        },
+        {
+          "$kind": "Microsoft.BeginSkill",
+          "$designer": {
+            "id": "q6m4QJ"
+          },
+          "activityProcessed": true,
+          "botId": "=settings.MicrosoftAppId",
+          "skillHostEndpoint": "=settings.skillHostEndpoint",
+          "connectionName": "=settings.connectionName",
+          "allowInterruptions": true,
+          "skillEndpoint": "=settings.skill['testSkill1'].endpointUrl",
+          "skillAppId": "=settings.skill['testSkill1'].msAppId"
+        },
+        {
+          "$kind": "Microsoft.BeginSkill",
+          "$designer": {
+            "id": "nvu3eW"
+          },
+          "activityProcessed": true,
+          "botId": "=settings.MicrosoftAppId",
+          "skillHostEndpoint": "=settings.skillHostEndpoint",
+          "connectionName": "=settings.connectionName",
+          "allowInterruptions": true,
+          "skillEndpoint": "=settings.skill['testSkill2'].endpointUrl",
+          "skillAppId": "=settings.skill['testSkill2'].msAppId"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "krVJHT"
+          },
+          "activity": "${SendActivity_krVJHT()}"
+        }
+      ]
+    }
+  ],
+  "$schema": "https://raw.githubusercontent.com/microsoft/BotFramework-Composer/stable/Composer/packages/server/schemas/sdk.schema",
+  "generator": "ComposerMultiSkillDialog.lg",
+  "id": "ComposerMultiSkillDialog",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": [
+      {
+        "intent": "TestSkill1",
+        "pattern": "Call Skill 1"
+      },
+      {
+        "intent": "TestSkill2",
+        "pattern": "Call Skill 2"
+      },
+      {
+        "intent": "BasicIntent",
+        "pattern": "Basic Intent"
+      },
+      {
+        "intent": "CallBoth",
+        "pattern": "Call Both"
+      }
+    ]
+  }
+}
