@@ -4,11 +4,17 @@ This project was designed to demonstrate an issue which occurs when a composer d
 ### Bot.Skills
 This project needs to be running on local IIS.
 There is a publish profile in the project which publishes the project to: C:\inetpub\wwwroot\Bot.MultiSkill.Skills
+
 Open MultiSkillAdaptiveBot.sln in Visual Studio
+
 Right click on Bot.Skills & choose "Publish"
+
 Publish using "FolderProfile.pubxml"
+
 Open IIS
+
 Create a new application pool called "Bot.MultiSkill.Skills" which is set to "No Managed Code"
+
 Open Sites / Default Site & right click on "Bot.MultiSkill.Skills" & "Convert To Application" selecting the "Bot.MultiSkill.Skills" application pool.
 
 This can be tested as working by going to be below 2 URLs in a browser:
@@ -21,8 +27,10 @@ You should see JSON text as the response similar to the below:
 ### ComposerMultiSkillDialog
 
 This project was built using [Bot Framework Composer](https://docs.microsoft.com/en-us/composer/introduction)
+
 Open the project in Bot Framework Composer.
 Click "Start Bot"
+
 When that action is completed select your preference of "Open Web Chat" or "Test in Emulator"
 
 ### The Issue
