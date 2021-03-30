@@ -5,7 +5,7 @@ This project was designed to demonstrate an issue which occurs when a composer d
 This project needs to be running on local IIS.
 There is a publish profile in the project which publishes the project to: C:\inetpub\wwwroot\Bot.MultiSkill.Skills
 
-Open MultiSkillAdaptiveBot.sln in Visual Studio
+Open MultiSkillComposerBot.sln in Visual Studio
 
 Right click on Bot.Skills & choose "Publish"
 
