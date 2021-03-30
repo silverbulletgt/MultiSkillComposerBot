@@ -2,7 +2,7 @@ This project was designed to demonstrate an issue which occurs when a composer d
 
 ## Setting up the project
 ### Bot.Skills
-This project needs to be running on local IIS
+This project needs to be running on local IIS.
 There is a publish profile in the project which publishes the project to: C:\inetpub\wwwroot\Bot.MultiSkill.Skills
 Open MultiSkillAdaptiveBot.sln in Visual Studio
 Right click on Bot.Skills & choose "Publish"
@@ -18,7 +18,7 @@ http://localhost/bot.multiskill.skills/api/manifest/Test.Skill2
 You should see JSON text as the response similar to the below:
 {"$schema":"https://schemas.botframework.com/schemas/skills/skill-manifest-2.1.preview-0.json","$id":"Test.Skill2","name":"Test.Skill2","description":"Responds with a message indicating Test Skill 2 was successfully called.","publisherName":"Test","version":"1.0","iconUrl":null,"tags":[],"endpoints":[{"name":"production","protocol":"BotFrameworkV3","description":"Production endpoint","endpointUrl":"http://localhost/Bot.MultiSkill.Skills/api/skill/Test.Skill2","msAppId":"00000000-0000-0000-0000-000000000000"}]}
 
-###ComposerMultiSkillDialog
+### ComposerMultiSkillDialog
 
 This project was built using [Bot Framework Composer](https://docs.microsoft.com/en-us/composer/introduction)
 Open the project in Bot Framework Composer.

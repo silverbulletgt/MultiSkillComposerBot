@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot.Skills", "Bot.Skills\Bot.Skills.csproj", "{37BC98C7-D097-4D75-80F7-B818728D1B0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bot.Skills", "Bot.Skills\Bot.Skills.csproj", "{37BC98C7-D097-4D75-80F7-B818728D1B0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{372C3B8E-F5A9-4B25-8139-A6552A5AD490}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
