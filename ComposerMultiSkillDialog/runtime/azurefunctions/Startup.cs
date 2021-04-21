@@ -76,7 +76,7 @@ namespace Microsoft.BotFramework.Composer.Functions
             //ComponentRegistration.Add(new CustomActionComponentRegistration());
 
             // Register the skills client and skills request handler.
-            services.AddSingleton<SkillConversationIdFactoryBase, SkillConversationIdFactory>();
+            services.AddSingleton<SkillConversationIdFactoryBase, Core.SkillConversationIdFactory>();
             services.AddHttpClient<BotFrameworkClient, SkillHttpClient>();
             services.AddSingleton<ChannelServiceHandler, SkillHandler>();
 
@@ -198,7 +198,7 @@ namespace Microsoft.BotFramework.Composer.Functions
         {
             if (settings?.Feature?.UseSetSpeakMiddleware == true && settings.Speech != null)
             {
-                adapter.Use(new SetSpeakMiddleware(settings.Speech.VoiceFontName, settings.Speech.FallbackToTextForSpeechIfEmpty));
+                adapter.Use(new Core.SetSpeakMiddleware(settings.Speech.VoiceFontName, settings.Speech.FallbackToTextForSpeechIfEmpty));
             }
         }
 

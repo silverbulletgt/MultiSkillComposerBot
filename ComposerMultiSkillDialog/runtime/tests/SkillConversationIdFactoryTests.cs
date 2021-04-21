@@ -14,7 +14,7 @@ namespace Tests
     [TestClass]
     public class SkillConversationIdFactoryTests
     {
-        private readonly SkillConversationIdFactory _idFactory = new SkillConversationIdFactory(new MemoryStorage());
+        private readonly Microsoft.BotFramework.Composer.Core.SkillConversationIdFactory _idFactory = new Microsoft.BotFramework.Composer.Core.SkillConversationIdFactory(new MemoryStorage());
         private string _botId = Guid.NewGuid().ToString("N");
         private string _skillId = Guid.NewGuid().ToString("N");
 

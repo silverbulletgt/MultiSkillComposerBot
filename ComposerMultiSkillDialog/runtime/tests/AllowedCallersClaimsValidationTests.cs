@@ -15,13 +15,13 @@ namespace Tests
         [TestMethod]
         public void AcceptNullAllowedCallersArray()
         {
-            var validator = new AllowedCallersClaimsValidator(new BotSkillConfiguration());
+            var validator = new Microsoft.BotFramework.Composer.WebAppTemplates.Authorization.AllowedCallersClaimsValidator(new BotSkillConfiguration());
         }
 
         [TestMethod]
         public void AcceptEmptyAllowedCallersArray()
         {
-            var validator = new AllowedCallersClaimsValidator(new BotSkillConfiguration()
+            var validator = new Microsoft.BotFramework.Composer.WebAppTemplates.Authorization.AllowedCallersClaimsValidator(new BotSkillConfiguration()
             {
                 AllowedCallers = new string[0]
             });
@@ -30,7 +30,7 @@ namespace Tests
         [TestMethod]
         public async Task AllowAnyCaller()
         {
-            var validator = new AllowedCallersClaimsValidator(new BotSkillConfiguration()
+            var validator = new Microsoft.BotFramework.Composer.WebAppTemplates.Authorization.AllowedCallersClaimsValidator(new BotSkillConfiguration()
             {
                 AllowedCallers = new string[] { "*" }
             });
@@ -44,7 +44,7 @@ namespace Tests
         public async Task AllowedCaller()
         {
             const string callerAppId = "BE3F9920-D42D-4D3A-9BDF-DBA62DAE3A00";
-            var validator = new AllowedCallersClaimsValidator(new BotSkillConfiguration()
+            var validator = new Microsoft.BotFramework.Composer.WebAppTemplates.Authorization.AllowedCallersClaimsValidator(new BotSkillConfiguration()
             {
                 AllowedCallers = new string[] { callerAppId }
             });
@@ -58,7 +58,7 @@ namespace Tests
         public async Task AllowedCallers()
         {
             const string callerAppId = "BE3F9920-D42D-4D3A-9BDF-DBA62DAE3A00";
-            var validator = new AllowedCallersClaimsValidator(new BotSkillConfiguration()
+            var validator = new Microsoft.BotFramework.Composer.WebAppTemplates.Authorization.AllowedCallersClaimsValidator(new BotSkillConfiguration()
             {
                 AllowedCallers = new string[] { "anotherId", callerAppId }
             });
@@ -73,7 +73,7 @@ namespace Tests
         public async Task NonAllowedCallerShouldThrowException()
         {
             var callerAppId = "BE3F9920-D42D-4D3A-9BDF-DBA62DAE3A00";
-            var validator = new AllowedCallersClaimsValidator(new BotSkillConfiguration()
+            var validator = new Microsoft.BotFramework.Composer.WebAppTemplates.Authorization.AllowedCallersClaimsValidator(new BotSkillConfiguration()
             {
                 AllowedCallers = new string[] { callerAppId }
             });
