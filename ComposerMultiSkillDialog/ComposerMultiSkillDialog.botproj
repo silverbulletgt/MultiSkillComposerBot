@@ -3,12 +3,12 @@
   "name": "ComposerMultiSkillDialog",
   "skills": {
     "testSkill1": {
-      "manifest": "http://localhost/bot.multiskill.skills/api/manifest/Test.Skill1",
+      "manifest": "http://localhost:36352/api/manifest/Test.Skill1",
       "remote": true,
       "endpointName": "production"
     },
     "testSkill2": {
-      "manifest": "http://localhost/bot.multiskill.skills/api/manifest/Test.Skill2",
+      "manifest": "http://localhost:36352/api/manifest/Test.Skill2",
       "remote": true,
       "endpointName": "production"
     }
