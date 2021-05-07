@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+    <UserSecretsId>e90741b7-0244-494a-8cd5-92652c7a4a47</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <None Include="ComposerDialogs\**">
