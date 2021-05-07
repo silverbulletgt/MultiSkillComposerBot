@@ -10,6 +10,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		readme.md = readme.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.BotFramework.Composer.WebApp", "ComposerMultiSkillDialog\runtime\azurewebapp\Microsoft.BotFramework.Composer.WebApp.csproj", "{AF1ECA8B-36A3-4BFE-A46B-B7A4D60DFA89}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.BotFramework.Composer.Core", "ComposerMultiSkillDialog\runtime\core\Microsoft.BotFramework.Composer.Core.csproj", "{F05F321E-7F77-4471-A511-2703C065ECCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BotComposerCustomRuntime", "BotComposerCustomRuntime", "{CADC1672-AC1A-4985-86B8-5C22D538600E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,9 +26,21 @@ Global
 		{37BC98C7-D097-4D75-80F7-B818728D1B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37BC98C7-D097-4D75-80F7-B818728D1B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37BC98C7-D097-4D75-80F7-B818728D1B0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF1ECA8B-36A3-4BFE-A46B-B7A4D60DFA89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF1ECA8B-36A3-4BFE-A46B-B7A4D60DFA89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF1ECA8B-36A3-4BFE-A46B-B7A4D60DFA89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF1ECA8B-36A3-4BFE-A46B-B7A4D60DFA89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F05F321E-7F77-4471-A511-2703C065ECCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F05F321E-7F77-4471-A511-2703C065ECCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F05F321E-7F77-4471-A511-2703C065ECCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F05F321E-7F77-4471-A511-2703C065ECCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AF1ECA8B-36A3-4BFE-A46B-B7A4D60DFA89} = {CADC1672-AC1A-4985-86B8-5C22D538600E}
+		{F05F321E-7F77-4471-A511-2703C065ECCD} = {CADC1672-AC1A-4985-86B8-5C22D538600E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A5FF500F-D198-4924-A69A-E62987BE2102}
