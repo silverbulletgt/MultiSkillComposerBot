@@ -2,27 +2,20 @@ This project was designed to demonstrate an issue which occurs when a composer d
 
 ## Setting up the project
 ### Bot.Skills
-This project needs to be running on local IIS.
-There is a publish profile in the project which publishes the project to: C:\inetpub\wwwroot\Bot.MultiSkill.Skills
+This project needs to be using iis express through visual studio
 
-Open MultiSkillComposerBot.sln in Visual Studio
+Open MultiSkillComposerBot.sln
 
-Right click on Bot.Skills & choose "Publish"
+Ensure that Bot.Skills is the startup project
 
-Publish using "FolderProfile.pubxml"
-
-Open IIS
-
-Create a new application pool called "Bot.MultiSkill.Skills" which is set to "No Managed Code"
-
-Open Sites / Default Site & right click on "Bot.MultiSkill.Skills" & "Convert To Application" selecting the "Bot.MultiSkill.Skills" application pool.
+Push F5
 
 This can be tested as working by going to be below 2 URLs in a browser:
-http://localhost/bot.multiskill.skills/api/manifest/Test.Skill1
-http://localhost/bot.multiskill.skills/api/manifest/Test.Skill2
+http://localhost:36352/api/manifest/Test.Skill1
+http://localhost:36352/api/manifest/Test.Skill2
 
 You should see JSON text as the response similar to the below:
-{"$schema":"https://schemas.botframework.com/schemas/skills/skill-manifest-2.1.preview-0.json","$id":"Test.Skill2","name":"Test.Skill2","description":"Responds with a message indicating Test Skill 2 was successfully called.","publisherName":"Test","version":"1.0","iconUrl":null,"tags":[],"endpoints":[{"name":"production","protocol":"BotFrameworkV3","description":"Production endpoint","endpointUrl":"http://localhost/Bot.MultiSkill.Skills/api/skill/Test.Skill2","msAppId":"00000000-0000-0000-0000-000000000000"}]}
+{"$schema":"https://schemas.botframework.com/schemas/skills/skill-manifest-2.1.preview-0.json","$id":"Test.Skill2","name":"Test.Skill2","description":"Responds with a message indicating Test Skill 2 was successfully called.","publisherName":"Test","version":"1.0","iconUrl":null,"tags":[],"endpoints":[{"name":"production","protocol":"BotFrameworkV3","description":"Production endpoint","endpointUrl":"http://localhost:36352/api/skill/Test.Skill2","msAppId":"00000000-0000-0000-0000-000000000000"}]}
 
 ### ComposerMultiSkillDialog
 
@@ -74,7 +67,7 @@ This repo contains 2 components:
 - Bot.Skills (in IIS Bot.MultiSkill.Skills)
 - ComposerMultiSkillDialog
 
-### Bot.Skills (in IIS Bot.MultiSkill.Skills)
+### Bot.Skills (run using IISExpress through Visual Studio)
 This project is a Web API which exposes the skill manifest & skill endpoint which are used by ComposerMultiSkillDialog
 
 It contains 2 skills: TestSkill1 & TestSkill2
@@ -87,15 +80,15 @@ It does this by looking for classes which inherit from SkillManifestBase.
 When SkillManifestBase is implemented the "RelatedDialog" type is set.
 
 To get the manifest for each skill use the below URLs:
-http://localhost/bot.multiskill.skills/api/manifest/Test.Skill1
-http://localhost/bot.multiskill.skills/api/manifest/Test.Skill2
+http://localhost:36352/api/manifest/Test.Skill1
+http://localhost:36352/api/manifest/Test.Skill2
 
 A skill is called through the SkillConsumerController.
 This controller also uses reflection to lookup the details for the {skillName} which is passed as part of the URL.
 
 The URL for calling the skills will be:
-http://localhost/Bot.MultiSkill.Skills/api/skill/Test.Skill1
-http://localhost/Bot.MultiSkill.Skills/api/skill/Test.Skill2
+http://localhost:36352/api/skill/Test.Skill1
+http://localhost:36352/api/skill/Test.Skill2
 
 ### ComposerMultiSkillDialog
 
@@ -107,3 +100,5 @@ It has 4 Intents:
 - Basic Intent: called using the text "Basic Intent"
 - CallBoth: called using the text "Call Both"
     - This calls both skills - This is where the issue exists
+
+As of 2021/05/07 this project was setup to use the "Custom Runtime" option in the Bot Composer so that it could be upgraded to version 4.13.1 of the Microsoft.Bot SDK
