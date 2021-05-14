@@ -11,6 +11,11 @@
       "manifest": "http://localhost:36352/api/manifest/Test.Skill2",
       "remote": true,
       "endpointName": "production"
+    },
+    "testLoopingPrompt": {
+      "manifest": "http://localhost:36352/api/manifest/Test.LoopingPrompt",
+      "remote": true,
+      "endpointName": "production"
     }
   }
 }

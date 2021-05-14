@@ -186,6 +186,29 @@
           "activity": "${SendActivity_krVJHT()}"
         }
       ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "Q5MuEm",
+        "name": "LoopingPrompt"
+      },
+      "intent": "LoopingPrompt",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginSkill",
+          "$designer": {
+            "id": "jJQ5EB"
+          },
+          "activityProcessed": true,
+          "botId": "=settings.MicrosoftAppId",
+          "skillHostEndpoint": "=settings.skillHostEndpoint",
+          "connectionName": "=settings.connectionName",
+          "allowInterruptions": true,
+          "skillEndpoint": "=settings.skill['testLoopingPrompt'].endpointUrl",
+          "skillAppId": "=settings.skill['testLoopingPrompt'].msAppId"
+        }
+      ]
     }
   ],
   "$schema": "https://raw.githubusercontent.com/microsoft/BotFramework-Composer/stable/Composer/packages/server/schemas/sdk.schema",
@@ -209,6 +232,10 @@
       {
         "intent": "CallBoth",
         "pattern": "Call Both"
+      },
+      {
+        "intent": "LoopingPrompt",
+        "pattern": "Loop"
       }
     ]
   }
