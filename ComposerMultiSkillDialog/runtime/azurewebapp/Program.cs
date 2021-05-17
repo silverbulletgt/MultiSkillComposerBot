@@ -34,6 +34,8 @@ namespace Microsoft.BotFramework.Composer.WebAppTemplates
 
                 builder.AddEnvironmentVariables()
                        .AddCommandLine(args);
+
+                builder.AddJsonFile("appSettings.json");
             })
             .ConfigureWebHostDefaults(webBuilder =>
             {

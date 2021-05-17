@@ -4,7 +4,6 @@ using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.AI.Luis;
@@ -25,12 +24,11 @@ using Microsoft.Bot.Builder.Skills;
 using Microsoft.Bot.Connector.Authentication;
 using Microsoft.BotFramework.Composer.Core;
 using Microsoft.BotFramework.Composer.Core.Settings;
+using Microsoft.BotFramework.Composer.WebApp.Components;
 
 //using Microsoft.BotFramework.Composer.CustomAction;
-using Microsoft.BotFramework.Composer.WebAppTemplates.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 
 namespace Microsoft.BotFramework.Composer.WebAppTemplates
 {
@@ -144,6 +142,8 @@ namespace Microsoft.BotFramework.Composer.WebAppTemplates
             var settings = new BotSettings();
             Configuration.Bind(settings);
 
+            services.AddSingleton(Configuration);
+
             // Create the credential provider to be used with the Bot Framework Adapter.
             services.AddSingleton<ICredentialProvider, ConfigurationCredentialProvider>();
             services.AddSingleton<BotAdapter>(sp => (BotFrameworkHttpAdapter)sp.GetService<IBotFrameworkHttpAdapter>());
@@ -154,7 +154,7 @@ namespace Microsoft.BotFramework.Composer.WebAppTemplates
             // register components.
             ComponentRegistration.Add(new DialogsComponentRegistration());
             ComponentRegistration.Add(new DeclarativeComponentRegistration());
-            ComponentRegistration.Add(new AdaptiveComponentRegistration());
+            ComponentRegistration.Add(new AdaptiveComponentRegistrationCustom());
             ComponentRegistration.Add(new LanguageGenerationComponentRegistration());
             ComponentRegistration.Add(new QnAMakerComponentRegistration());
             ComponentRegistration.Add(new LuisComponentRegistration());
