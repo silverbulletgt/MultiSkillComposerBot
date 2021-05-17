@@ -136,8 +136,6 @@ namespace Microsoft.BotFramework.Composer.WebAppTemplates
         {
             services.AddControllers().AddNewtonsoftJson();
 
-            services.AddSingleton<IConfiguration>(this.Configuration);
-
             // Load settings
             var settings = new BotSettings();
             Configuration.Bind(settings);
