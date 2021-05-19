@@ -152,7 +152,16 @@ namespace Microsoft.BotFramework.Composer.WebAppTemplates
             // register components.
             ComponentRegistration.Add(new DialogsComponentRegistration());
             ComponentRegistration.Add(new DeclarativeComponentRegistration());
+
+            //to reproduce the below 2 issues uncomment this line & comment the line with AdaptiveComponentRegistrationCustom
+            //The 2 issues are:
+            //https://github.com/microsoft/botframework-sdk/issues/6248
+            //When 2 skills are called back to back the "EndOfConversation" activity returned after the 1st skill completes gets passed to the 2nd skill & prevents the 2nd skill from completing
+            //https://stackoverflow.com/questions/67541109/bot-framework-how-do-i-stop-a-waterfall-dialog-which-is-waiting-for-a-prompt-re/67576904#67576904
+            //There is no way to prevent a skill which has a waterfall prompt from reprompting if it is interrupted
+            //ComponentRegistration.Add(new AdaptiveComponentRegistration());
             ComponentRegistration.Add(new AdaptiveComponentRegistrationCustom());
+
             ComponentRegistration.Add(new LanguageGenerationComponentRegistration());
             ComponentRegistration.Add(new QnAMakerComponentRegistration());
             ComponentRegistration.Add(new LuisComponentRegistration());
